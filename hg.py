@@ -1,7 +1,7 @@
-import random, keyboard
+import random
 
 print("안녕하세요!")
-print("저는 이곳을 할리갈리 게임 속 세상이에요.")
+print("여기는 할리갈리 게임 속 세상이에요.")
 
 
 def hg():
@@ -14,14 +14,26 @@ def hg():
 
     random.shuffle(cards)
 
-    나눠줌= cards[: 21]
-    안_나눠줌=cards[21:]
 
-    a = 나눠줌[:7]
-    b = 나눠줌[7:15]
-    c = 나눠줌[15:]
+    a = cards[:len(cards)/3]
+    b = cards[len(cards)/3:len(cards)/3*2]
+    c = cards[len(cards)/3*2:]
+
+    a_card = ""
+    b_card = ""
+    c_card = ""
+
+    turn =1
+    
     while True:
-        pass
+        if turn % 3 == 1:
+            print("a가 카드를 내려놓았습니다.")
+
+            a_card = random.choice(a)
+            
+            print("a가 놓은 카드:", a_card)
+
+            if a_card
 
 
 
