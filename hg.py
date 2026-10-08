@@ -1,4 +1,4 @@
-import random
+import random,time
 
 print("안녕하세요!")
 print("여기는 할리갈리 게임 속 세상이에요.")
@@ -14,26 +14,66 @@ def hg():
 
     random.shuffle(cards)
 
+    num  = int(len(cards)/3)
 
-    a = cards[:len(cards)/3]
-    b = cards[len(cards)/3:len(cards)/3*2]
-    c = cards[len(cards)/3*2:]
+    a = cards[:num]
+    b = cards[num:num*2]
+    c = cards[num*2:]
 
     a_card = ""
     b_card = ""
     c_card = ""
+
+    a_score = 0
+    b_score = 0
+    c_score = 0
+
+    give = 0
 
     turn =1
     
     while True:
         if turn % 3 == 1:
             print("a가 카드를 내려놓았습니다.")
+            start = time.perf_counter()
 
             a_card = random.choice(a)
             
             print("a가 놓은 카드:", a_card)
 
-            if a_card
+
+            give +=1
+
+            a.remove(a_card)
+
+            a_input = input()
+            re = round(time.perf_counter() - start, 3)
+
+            if '5' in a_card:
+                if a_input == '':
+                    
+                    a_time = round(random.uniform(0,2),3)
+                    
+                    print("a는 {}초 만에 종을 쳤습니다.".format(a_time))
+                    
+                    b_time = round(random.uniform(0,2),3)
+                    
+                    print("b는 {}초 만에 종을 쳤습니다.".format(b_time))
+
+                    print("나는 {}초 만에 종을 쳤습니다.".format(re))
+
+                    if a_time < b_time and a_time < re:
+                        print("a가 카드를 가져갑니다.")
+                        a_score += give
+
+                    elif b_time < a_time and b_time < re:
+                        print("b가 카드를 가져갑니다.")
+                        b_score += give
+                    else :
+                        print("내가 카드를 가져갑니다.")
+                        c_score += give
+                
+                
 
 
 
